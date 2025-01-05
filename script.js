@@ -14,24 +14,38 @@ document.addEventListener("DOMContentLoaded", function () {
     const boxes = document.querySelectorAll(".box");
 
     for (let box of boxes) {
-      box.style.backgoundColor = newBoxColor;
+      box.style.backgroundColor = newBoxColor;
     }
 
     colorInput.value = ""; // Resets the input field after it's submitted
+
     boxColor = newBoxColor; // Sets the box color to the new color that's submitted
   });
 
   function addNewBox() {
+    // Create a new div element
     const box = document.createElement("div");
-    box.setAttribute("data-box-id", boxId.toString()); // Converts boxId to a string and stores it to the data attribute.
-    box.textContent = `Box ${boxId}`; // Displays box ID as text
-    box.className = "box"; // Sets the CSS class to "box"
-    box.style.backgroundColor = boxColor; // Sets the box's background color to the last submitted box color
-    boxContainer.appendChild(box); // Appends the new box to the box container element as it's child
 
-    boxId++; // Increments the counter to keep unique id's for additional new boxes.
+    // Set a data attribute 'data-box-id' with the current value of boxId converted to a string
+    box.setAttribute("data-box-id", boxId.toString());
+
+    // Set the text content of the box to display its ID
+    box.textContent = `Box ${boxId}`;
+
+    // Add the CSS class 'box' to the new div element
+    box.className = "box";
+
+    // Set the background color of the box to the last submitted box color
+    box.style.backgroundColor = boxColor;
+
+    // Append the new box to the container element with the ID 'box-container'
+    boxContainer.appendChild(box);
+
+    // Increment the boxId counter to ensure each new box has a unique ID
+    boxId++;
   }
 
+  // On clicking the "New Box" button, addNewBox() Method is called
   newBoxBtn.addEventListener("click", function () {
     addNewBox();
   });
