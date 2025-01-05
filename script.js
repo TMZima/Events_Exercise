@@ -49,4 +49,11 @@ document.addEventListener("DOMContentLoaded", function () {
   newBoxBtn.addEventListener("click", function () {
     addNewBox();
   });
+
+  // document listener for double click. If the class list contains "box" delete selected box
+  document.addEventListener("dblclick", function (e) {
+    if (e.target.classList.contains("box")) {
+      e.target.remove();
+    }
+  });
 });
