@@ -63,4 +63,12 @@ document.addEventListener("DOMContentLoaded", function () {
       e.target.textContent = `X: ${e.pageX}, Y: ${e.pageY}`;
     }
   });
+
+  // document listener for mouseout box. If the class list contains "box" return text display to original box ID
+  document.addEventListener("mouseout", function (e) {
+    if (e.target.classList.contains("box")) {
+      const originalBoxId = e.target.getAttribute("data-box-id"); // stores original box ID
+      e.target.textContent = `Box ${originalBoxId}`; // sets text display to original box ID
+    }
+  });
 });
