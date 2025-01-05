@@ -71,4 +71,13 @@ document.addEventListener("DOMContentLoaded", function () {
       e.target.textContent = `Box ${originalBoxId}`; // sets text display to original box ID
     }
   });
+
+  // listener for keydown. If keydown happens in input form, return. If keydown is "n" or "N" call addNewBox() method.
+  document.addEventListener("keydown", function (e) {
+    if (e.target.id === "color-input") {
+      return; // Ignores key presses in input form
+    } else if (e.key === "n" || e.key === "N") {
+      addNewBox(); // adds new box when the "n" or "N" keys are pressed
+    }
+  });
 });
