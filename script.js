@@ -31,4 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     boxId++; // Increments the counter to keep unique id's for additional new boxes.
   }
+
+  newBoxBtn.addEventListener("click", function () {
+    addNewBox();
+  });
 });
