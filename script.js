@@ -56,4 +56,11 @@ document.addEventListener("DOMContentLoaded", function () {
       e.target.remove();
     }
   });
+
+  // document listener for mouseover box. If the class list contains "box" display pageX and pageY as text content
+  document.addEventListener("mouseover", function (e) {
+    if (e.target.classList.contains("box")) {
+      e.target.textContent = `X: ${e.pageX}, Y: ${e.pageY}`;
+    }
+  });
 });
